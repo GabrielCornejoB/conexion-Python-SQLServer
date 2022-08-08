@@ -14,9 +14,10 @@ conn_params = "Driver={"+param_driver+"};Server="+param_server+";Database="+para
 conn = pyodbc.connect(conn_params)
 cursor = conn.cursor()
 
-#La query SQL que se quiera realizar en la base de datos específicada anteriormente
+# La query SQL que se quiera realizar en la base de datos específicada anteriormente
 sql_query = ""                      
 cursor.execute(sql_query)                  
 
+# En cursor queda el output del Query, toca imprimirlo línea a línea
 for i in cursor:
     print(i)
