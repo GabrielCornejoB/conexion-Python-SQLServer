@@ -8,13 +8,13 @@ import pyodbc
 #   2. Se abrirá una ventana, en esta debemos buscar la sección de 'Drivers' o 'Controladores'
 #   3. Aquí en la columna 'Nombre' buscaremos la que diga 'ODBC Driver XX for SQL Server, y este es el 
 #   parametro que necesitamos
-param_driver = ""      
+param_driver = ""   #ODBC Driver 17 for SQL Server
 
 # Se obtiene entrando en la base de datos y colocando el comando SQL: "SELECT @@SERVERNAME;"
-param_server = ""    
+param_server = ""   #DESKTOP-4LKDMB8  
 
 # El nombre de la base de datos a la que se va a acceder
-param_database = ""                 
+param_database = "" #db_prueba                 
 
 conn_params = "Driver={"+param_driver+"};Server="+param_server+";Database="+param_database+";Trusted_Connection=yes;"
 
@@ -22,6 +22,8 @@ conn = pyodbc.connect(conn_params)
 cursor = conn.cursor()
 
 # La query SQL que se quiera realizar en la base de datos específicada anteriormente
+# Si la sentencia SQL es un INSERT o un tipo de modificación, entonces se debe usar conn.commit() despues
+# de execute
 sql_query = "";                      
 cursor.execute(sql_query)                  
 
